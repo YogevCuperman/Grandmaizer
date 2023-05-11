@@ -3,9 +3,14 @@ import pyttsx3
 import pyaudio
 
 recognizer = speech_recognition.Recognizer()
-tts = pyttsx3.init()
 
-def listen():
+tts = pyttsx3.init()
+voices = tts.getProperty('voices')
+rate = tts.getProperty('rate')
+tts.setProperty('voice', voices[1].id)
+tts.setProperty('rate', rate - 75)
+
+def listen() -> str:
     global recognizer
     try:
         with speech_recognition.Microphone() as mic:
@@ -18,7 +23,7 @@ def listen():
         return None
 
 
-def say(response):
+def say(response: str):
     tts.say(response)
     tts.runAndWait()
 
