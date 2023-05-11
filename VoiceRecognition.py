@@ -5,12 +5,6 @@ import pyaudio
 recognizer = speech_recognition.Recognizer()
 tts = pyttsx3.init()
 
-say_again = "i didn't catch that. can you say that again please?"
-
-keywords = {"can't read": "do you want me to enlarge the text?",
-            "my name is": "hello, my name is Grandmizer"}
-
-
 def listen():
     global recognizer
     try:
@@ -21,30 +15,12 @@ def listen():
             return text
     except speech_recognition.UnknownValueError:
         recognizer = speech_recognition.Recognizer()
-        return say_again
+        return None
 
 
 def say(response):
     tts.say(response)
     tts.runAndWait()
 
-
-def get_response(question):
-    for kw in keywords:
-        if kw in question:
-            return keywords[kw]
-    return "I don't know"
-
-
-
-# MAIN LOOP
-
-
-while True:
-    question = listen()
-    if question == say_again:
-        say(say_again)
-        continue
-    else:
-        answer = get_response(question)
-        say(answer)
+def say_again():
+    say("i didn't catch that. can you say that again please?")
