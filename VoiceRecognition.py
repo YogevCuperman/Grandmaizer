@@ -36,15 +36,9 @@ def get_response(question):
     return "I don't know"
 
 
-class Profile:
-    def __init__(self):
-        self.name = None
-        self.cant_read = None
-
 
 # MAIN LOOP
 
-profile = Profile()
 
 while True:
     question = listen()
