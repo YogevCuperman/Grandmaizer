@@ -18,6 +18,7 @@ def listen() -> str:
             recognizer.adjust_for_ambient_noise(mic, duration=0.2)
             audio = recognizer.listen(mic)
             text = recognizer.recognize_google(audio).lower()
+            print(text)
             return text
     except speech_recognition.UnknownValueError:
         recognizer = speech_recognition.Recognizer()
