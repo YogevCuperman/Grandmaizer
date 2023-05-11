@@ -3,6 +3,7 @@ class Profile:
         self.name = None
         self.age = None
         self.id_number = None
+        self.problem = None
 
     ### GETTERS ###
     def get_name(self):
@@ -14,6 +15,9 @@ class Profile:
     def get_id_number(self):
         return self.id_number
 
+    def get_problem(self):
+        return self.problem
+
     ### SETTERS ###
     def set_name(self, name):
         self.name = name
@@ -23,3 +27,6 @@ class Profile:
 
     def set_id_number(self, id):
         self.id_number = id
+
+    def set_problem(self, problem):
+        self.problem = problem
