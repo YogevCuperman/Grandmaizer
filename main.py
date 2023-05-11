@@ -39,15 +39,12 @@ while problem is None:
     voice.say_again()
     problem = voice.listen()
 
-response = Classifier.get_response(f"You are an actor in the following scenario: You are a customer-service "
-                                   f"representative "
-                                   f"of a credit card company and you are supposed to solve my problem: {problem}. "
-                                   f"You can ask me one question at a time to fill in the information you need. Do "
-                                   f"not answer yourself. After giving an answer "
-                                   f"(which is not a question you ask), check if the problem is solved."
-                                   f"Do not mention the roles in the conversation and dont write any of the"
-                                   f"customer lines. When you finish the conversation say 'Would you like "
-                                   f"to talk with a real person?' without any other words.")
+response = Classifier.get_response(f"You are a customer-service agent for "
+                                   f"a credit card company. you help me with my problem: {problem}. you can ask me "
+                                   f"one question at a time to fill in the information you need in order to help me "
+                                   f"solve the problem. Do not generate entire conversation, only the latest question"
+                                   f". When you finish the conversation say 'Would you like to talk "
+                                   f"with a real person?' without any other words.")
 
 while not problem_solved:
     voice.say(response)
