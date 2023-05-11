@@ -1,7 +1,7 @@
 import openai
 
 # Set your OpenAI API Key
-api_key = "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"
+api_key = "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"
 
 openai.api_key = api_key
 
@@ -21,6 +21,7 @@ openai.api_key = api_key
 
 chat_log = []
 
+
 def get_response(prompt):
     chat_log.append({"role": "user", "content": prompt})
     response = openai.ChatCompletion.create(
@@ -31,6 +32,7 @@ def get_response(prompt):
     chat_log.append({"role": "assistant", "content": assistant_response})
     print(assistant_response)
     return assistant_response
+
 
 def reset():
     chat_log = []
